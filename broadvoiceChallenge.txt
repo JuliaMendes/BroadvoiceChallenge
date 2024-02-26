@@ -1,0 +1,102 @@
+
+1 - What questions would you ask in order to clarify requirements?
+
+1.1 According to the proposed layout, the email field is not mandatory, but it must be filled in to receive the email message with the temporary password. Is this a requirement error?
+
+1.2 What should happen if the user does not change the password?
+
+1.3 What happens if the user enters incorrect data in the fields? What message should appear?
+
+1.4 What should happen if the user clicks the Save or Cancel buttons without entering the data in the fields? What message should be displayed?
+
+1.5 What should happen if the user clicks on the Change password button, will they be redirected to another page?
+
+1.6 Which devices are supported?
+
+1.7 Which browsers should be supported?
+
+1.8 If it works on a mobile device, which system versions should be used?
+
+1.9 What is the maximum time for the email with the temporary password to reach the user?
+
+1.10 The minimum size suport in the field are correct? What happens case my name is small than 6? For exemple Ana.
+
+
+
+
+2 - Specify 5 test cases to test this requirement
+
+Test Case: CT1
+- Scenario: Add new user successfully (Happy Path)
+Steps / Inputs:
+     1 Fill in the Email field correctly - johndoe@gmail.com
+     2 Fill in the First Name field correctly - John
+     3 Fill in the Last Name field correctly - Doe
+     4 Click on the save button
+Expected Result: The user must be created and must receive the email with the temporary password.
+
+
+Test Case: CT2
+- Scenario: Validate user creation using an invalid email address and valid first and last name
+  Steps / Inputs:
+    1 Fill in the Invalid email field - j
+    2 Fill in the First Name field correctly - John
+    3 Fill in the Last Name field correctly - Doe
+    4 Click on the save button
+Expected Result: A message should appear that the email is not valid
+
+
+Test Case: CT3
+- Scenario: Validate user creation using all invalid credentials
+  Steps / Inputs:
+     1 Fill in the Invalid email field - jj
+     2 Fill in the invalid First Name field - j
+     3 Fill in the invalid Last Name field - j
+     4 Click on the save button
+Expected Result: A message should appear that the field is not valid
+
+
+Test Case: CT4
+- Scenario: Validate user creation without providing any credentials
+Steps / Inputs:
+     1 Do not fill in the fields
+     2 Click on the save button
+Expected Result: The user should not be created and a message should appear asking to fill in the fields.
+
+
+Test Case: CT5
+- Scenario: Log Off successfully
+Steps / Inputs:
+     1 Log in to the Home Page
+     2 Click the Log Off button
+Expected Result: Log Off must be done successfully
+
+
+Test Case: CT6
+- Scenario: Validate user creation page functionality in all the supported environments
+Steps / Inputs:
+   1 Open the Application URL (https://addnewuser.com) in any supported Browser
+Expected Result: The user creation page should work correctly in all the supported environments
+
+
+Test Case: CT7
+- Scenario: Validate receipt of email with temporary password
+Steps / Inputs:
+     1 Fill in the Email field correctly - johndoe@gmail.com
+     2 Fill in the First Name field correctly - John
+     3 Fill in the Last Name field correctly - Doe
+     4 Click on the save button
+     5 Check if the email contains the new temporary password
+     6 Log in to the platform with the new temporary password
+Expected Result: It should be possible to log in with the temporary password
+
+
+Test Case: CT8
+- Scenario: Validate password change after initial login
+Steps / Inputs:
+     1 After accessing the application with the new temporary password
+     2 Click on the Change Password button
+     3 Change the password correctly
+     4 Log off
+     5 Check if it is possible to log in with the new modified password
+Expected Result: It should be possible to log in with the new modified password
